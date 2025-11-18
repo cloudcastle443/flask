@@ -16,13 +16,13 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             echo "Pulling latest image..."
-            docker pull yourdockerhubusername/flask-app:latest
+            docker pull kapithangautham/flask-app:latest
 
             echo "Stopping old container..."
             docker rm -f flask-container || true
 
             echo "Starting new container..."
             docker run -d --name flask-container -p 3000:3000 \
-              yourdockerhubusername/flask-app:latest
+              kapithangautham/flask-app:latest
 
             echo "Deployment complete 🚀"
